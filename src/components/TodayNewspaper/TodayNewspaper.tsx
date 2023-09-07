@@ -1,7 +1,7 @@
 'use client'
 import { Button, DatePicker } from 'antd'
 import dayjs, { Dayjs } from 'dayjs'
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useCallback, useEffect, useState } from 'react'
 import localeUa from 'antd/es/date-picker/locale/uk_UA'
 import { News } from '@/types/news'
 import 'dayjs/locale/uk'
@@ -29,17 +29,17 @@ const TodayNewspaper: FC<ITodayNewspaper> = ({
     const [data, setData] = useState<News[] | null>(null)
     const [currentDate, setCurrentDate] = useState(dayjs())
 
-    const handleDateChange = async (date: Dayjs | null) => {
+    const handleDateChange = useCallback(async (date: Dayjs | null) => {
         if (date) {
             const formattedDate = dayjs(date).format('YYYY-MM-DD')
             const newsData: News[] = await getData(formattedDate, queryLink)
             setData(newsData)
         }
-    }
+    }, [queryLink])
     
     useEffect(() => {
         handleDateChange(currentDate)
-    }, [currentDate])
+    }, [currentDate, handleDateChange])
 
     const filteredData = data !== null && data !== undefined ? filterNewsByLineNewsAndDate(data, feed) : []
 

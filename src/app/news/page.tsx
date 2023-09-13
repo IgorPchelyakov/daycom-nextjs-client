@@ -31,6 +31,7 @@ export default async function LineNews() {
     return (
         <>
             <LineNewsBlock
+                feedTitle={selectedFeed}
                 data={data}
                 link={link}
                 selectedFeed={selectedFeed}

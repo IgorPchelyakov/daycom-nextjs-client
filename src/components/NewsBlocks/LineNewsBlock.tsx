@@ -142,7 +142,6 @@ const LineNewsBlock: FC<ILineNewsBlock> = ({
                     />
                 ))
             }
-
             <MiniNewsCarousel
                 blockTitle={'Аналітика'}
                 slidesToShowStart={1}

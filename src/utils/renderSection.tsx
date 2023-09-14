@@ -1,6 +1,11 @@
 import { News } from "@/types/news"
 
-export const renderSection = (sectionData: News[], Component: React.FC<any>, link: string, showSection: boolean) => {
+export const renderSection = (
+    sectionData: News[],
+    Component: React.FC<any>,
+    link: string,
+    showSection: boolean
+) => {
     return sectionData.map((news: News, index: number, array: News[]) => (
         <Component
             key={news.id}

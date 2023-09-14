@@ -43,7 +43,7 @@ const TopNewsCarousel: FC<ITopNewsCarousel> = ({
                                     src={news.mainImage}
                                     preview={false}
                                 />
-                                <h2>{news.title}</h2>
+                                <h2 className='px-[20px] xl:px-0'>{news.title}</h2>
                             </Link>
                         </div>
                     )

@@ -19,7 +19,7 @@ const MiniNewsCarousel: FC<IMiniNewsCarousel> = ({
     children
 }) => {
     return (
-        <div className="dots-container mb-4 border-b border-black">
+        <div className="dots-container mb-12 pb-2 border-b border-black">
             <div className="mb-1 text-[12px] font-light leading-[15px] text-gray-500">
                 {blockTitle}
             </div>

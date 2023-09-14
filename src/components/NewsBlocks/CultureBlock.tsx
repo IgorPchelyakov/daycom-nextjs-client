@@ -1,12 +1,13 @@
 import { News } from '@/types/news'
 import { FC } from 'react'
 import BlockNameBigImg from '../Articles/BlockNameBigImg'
-import { currentDate } from '../CurrentDate/dateCheckFunc'
 import { Paths } from '@/data/Paths'
 import LineNewsFirstImg from '../Articles/LineNewsFirstImg'
 import SectionBlockName from '../UI/Wrappers/SectionBlockName'
 import NewsCarousel from '../Carousels/NewsCarousel'
 import SectionNewsCarousel from '../Articles/SectionNewsCarousel'
+import { renderArticlesSection } from '@/utils/renderArticlesSection'
+import { renderArticlesBlock } from '@/utils/renderArticlesBlock'
 
 interface ICultureBlock {
     data: News[]
@@ -22,30 +23,8 @@ const CultureBlock: FC<ICultureBlock> = ({
             <div className="mb-4 gap-4 xl:flex">
                 <div className="flex-col xl:w-[824px]">
                     <SectionBlockName sectionBlockName={'Культура, музика та кіно'}>
-                        {data
-                            .filter((news: News) => news.section === 'Культура' ||
-                                news.section === 'Музика' ||
-                                (news.section === 'Кіно'
-                                && new Date(news.publishedAt) <= currentDate))
-                            .slice(0, 2)
-                            .map((news: News, index: number, array: News[]) => (
-                                <BlockNameBigImg
-                                    key={news.id}
-                                    index={index}
-                                    array={array}
-                                    imgUrl={news.mainImage}
-                                    imgDesc={news.mainImgDesc}
-                                    imgAuthor={news.mainImgAuthor}
-                                    title={news.title}
-                                    description={news.desc}
-                                    link={link}
-                                    articleFeed={news.feed}
-                                    url={news.url}
-                                    feed={'Загальнонаціональна стрічка'}
-                                />
-                            ))
-                        }
-                        <div className="rounded-md border max-h-[258px] mb-4">
+                        {renderArticlesSection(data, 0, 2, BlockNameBigImg, 'Загальнонаціональна стрічка', link, 'Культура', 'Музика', 'Кіно')}
+                        <div className="rounded-md border xl:max-h-[258px] mb-4">
                         <NewsCarousel
                             blockTitle={''}
                             slidesToShowStart={1}
@@ -68,27 +47,7 @@ const CultureBlock: FC<ICultureBlock> = ({
                 </div>
                 <div className="xl:border"></div>
                 <div className="mt-4 flex-col px-[20px] xl:mt-0 xl:w-[345px] xl:px-0">
-                    {data
-                        .filter((news: News) => news.block === 'Стрічка новин' && new Date(news.publishedAt) <= currentDate)
-                        .slice(32, 35)
-                        .map((news: News, index: number, array: News[]) => (
-                            <LineNewsFirstImg
-                                key={news.id}
-                                index={index}
-                                array={array}
-                                imgUrl={news.mainImage}
-                                imgDesc={news.mainImgDesc}
-                                imgAuthor={news.mainImgAuthor}
-                                title={news.title}
-                                description={news.desc}
-                                link={Paths.news}
-                                articleFeed={news.feed}
-                                feed={'Загальнонаціональна стрічка'}
-                                url={news.url}
-                                publishTime={news.publishedAt}
-                            />
-                        ))
-                    }
+                    {renderArticlesBlock(data, 32, 35, LineNewsFirstImg, 'Загальнонаціональна стрічка', link, 'Стрічка новин')}
                 </div>
             </div>
         </div>

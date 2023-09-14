@@ -2,10 +2,10 @@ import React, { FC } from 'react'
 import Heading24Hours from '../Articles/Heading24Hours'
 import { News } from '@/types/news'
 import MainTodayNoImg from '../Articles/MainTodayNoImg'
-import { currentDate } from '../CurrentDate/dateCheckFunc'
 import MainTodayWithImg from '../Articles/MainTodayWithImg'
 import MainTodayImgAndTitle from '../Articles/MainTodayImgAndTitle'
 import MainTodayOnlyTitle from '../Articles/MainTodayOnlyTitle'
+import { renderArticlesBlock } from '@/utils/renderArticlesBlock'
 
 interface IMainToday {
     data: News[]
@@ -32,85 +32,17 @@ const MainTodayBlock: FC<IMainToday> = ({
                 <div className="mb-4 text-[12px] font-light leading-[15px] text-gray-600">
                     Головне сьогодні
                 </div>
-                {data
-                    .filter((news: News) => news.block === 'Головне сьогодні' && new Date(news.publishedAt) <= currentDate)
-                    .slice(1, 3)
-                    .map((news: News, index: number, array: News[]) => (
-                    <MainTodayNoImg
-                        key={news.id}
-                        index={index}
-                        array={array}
-                        title={news.title}
-                        description={news.desc}
-                        link={link}
-                        articleFeed={news.feed}
-                        feed={'Загальнонаціональна стрічка'}
-                        url={news.url}
-                    />
-                    ))
-                }
+                {renderArticlesBlock(data, 1, 3, MainTodayNoImg, 'Загальнонаціональна стрічка', link, 'Головне сьогодні')}
             </div>
             <div className="w-full xl:w-[530px] xl:border-r xl:pr-6">
-                {data
-                    .filter((news: News) => news.block === 'Головне сьогодні' && new Date(news.publishedAt) <= currentDate)
-                    .slice(0, 1)
-                    .map((news: News, index: number, array: News[]) => (
-                    <MainTodayWithImg
-                        key={news.id}
-                        index={index}
-                        array={array}
-                        title={news.title}
-                        imgUrl={news.mainImage}
-                        imgDesc={news.mainImgDesc}
-                        imgAuthor={news.mainImgAuthor}
-                        description={news.desc}
-                        link={link}
-                        articleFeed={news.feed}
-                        feed={'Загальнонаціональна стрічка'}
-                        url={news.url}
-                    />
-                    ))
-                }
+                {renderArticlesBlock(data, 0, 1, MainTodayWithImg, 'Загальнонаціональна стрічка', link, 'Головне сьогодні')}
             </div>
             <div className="w-full xl:w-[345px]">
-                {data
-                    .filter((news: News) => news.block === 'Головне сьогодні' && new Date(news.publishedAt) <= currentDate)
-                    .slice(3, 6)
-                    .map((news: News, index: number, array: News[]) => (
-                    <MainTodayImgAndTitle
-                        key={news.id}
-                        index={index}
-                        array={array}
-                        title={news.title}
-                        imgUrl={news.mainImage}
-                        imgDesc={news.mainImgDesc}
-                        imgAuthor={news.mainImgAuthor}
-                        link={link}
-                        articleFeed={news.feed}
-                        feed={'Загальнонаціональна стрічка'}
-                        url={news.url}
-                    />
-                    ))
-                }
+                {renderArticlesBlock(data, 3, 6, MainTodayImgAndTitle, 'Загальнонаціональна стрічка', link, 'Головне сьогодні')}
             </div>
         </div>
         <div className="mb-4 border-b border-black pb-4 xl:flex xl:justify-between xl:gap-4">
-            {data
-                .filter((news: News) => news.block === 'Головне сьогодні' && new Date(news.publishedAt) <= currentDate)
-                .slice(6, 10)
-                .map((news: News, index: number, array: News[]) =>(
-                    <MainTodayOnlyTitle
-                        key={news.id}
-                        index={index}
-                        array={array}
-                        title={news.title}
-                        link={link}
-                        articleFeed={news.feed}
-                        feed={'Загальнонаціональна стрічка'}
-                        url={news.url}
-                    />
-                ))
-            }
+            {renderArticlesBlock(data, 6, 10, MainTodayOnlyTitle, 'Загальнонаціональна стрічка', link, 'Головне сьогодні')}
         </div>
     </div>
     )

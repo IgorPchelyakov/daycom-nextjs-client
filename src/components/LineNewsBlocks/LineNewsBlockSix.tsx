@@ -27,7 +27,7 @@ const LineNewsBlockSix: FC<LineNews> = ({
             {data && visibleArticles < data.length && (
                 <div className="mt-10">
                     <Image src={line} alt={'Лінія розділу'} />
-                    <div className="z-10 translate-y-[-60px]">
+                    <div className="z-10 translate-y-[-50px]">
                         <button
                             onClick={loadMoreArticles}
                             className="mx-auto mt-10 block rounded-md px-4 py-2 text-base text-gray-500 transition-shadow hover:shadow-md"

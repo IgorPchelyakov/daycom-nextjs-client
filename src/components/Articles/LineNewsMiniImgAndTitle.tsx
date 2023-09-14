@@ -48,7 +48,7 @@ const LineNewsMiniImgAndTitle: FC<ILineNewsMiniImgAndTitle> = ({
                 href={`${linkTo}/${url}`}
                 className="mb-4 block border-b pb-4"
             >
-                <div className="flex gap-2">
+                <div className="flex justify-between gap-2">
                     <div className="xl:max-w-[255px] xl:px-2">
                         <h2 className="mb-3 text-[16px] font-light leading-[19px]">
                             {title}

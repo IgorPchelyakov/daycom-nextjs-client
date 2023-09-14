@@ -36,7 +36,7 @@ const SectionNewsCarousel: FC<ISectionNewsCarousel> = ({
                         <Link href={`${link}/${news.url}`}
                             className='items-center justify-between gap-4 pr-5 xl:flex'
                         >
-                            <div className="xl:max-w-[500px]">
+                            <div className="px-[20px] xl:max-w-[500px] xl:px-0">
                                 <h2 className="mb-4 text-[16px] leading-[19px]">
                                     {news.title}
                                 </h2>

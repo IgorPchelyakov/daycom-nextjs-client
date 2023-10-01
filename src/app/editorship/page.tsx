@@ -7,7 +7,7 @@ import AuthorCard from "@/components/UI/AuthorCard"
 import { Author } from "@/types/user"
 
 async function getData() {
-  const res = await fetch('https://sside.daycom.online/api//authors')
+  const res = await fetch('https://sside.daycom.com.ua/api/authors')
   return res.json()
 }
 

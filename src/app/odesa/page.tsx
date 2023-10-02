@@ -7,11 +7,10 @@ import CultureBlock from "@/components/NewsBlocks/CultureBlock";
 import LineBlock from "@/components/NewsBlocks/LineBlock";
 import SportBlock from "@/components/NewsBlocks/SportBlock";
 import FiveCardBlock from "@/components/NewsBlocks/FiveCardBlock";
-
-const server = 'https://sside.daycom.online/api/odesa/with-national-news'
+import { fetchCityPaths } from "@/data/FetchCityPaths";
 
 async function getData() {
-  const res = await fetch(server)
+  const res = await fetch(fetchCityPaths.OdesaHome)
   return res.json()
 }
 

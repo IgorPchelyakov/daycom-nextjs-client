@@ -1,11 +1,12 @@
 import TodayNewspaper from "@/components/TodayNewspaper/TodayNewspaper"
+import { fetchCityPaths } from "@/data/FetchCityPaths"
 import { RegionDniproPaths } from "@/data/Paths"
 
 export default async function NewsToday() {
     const feedTitle = 'Дніпро стрічка'
     const feed = 'Дніпро'
     const link = RegionDniproPaths.dniproNews
-    const queryLink = 'https://sside.daycom.online/api/dnipro/news/news-today'
+    const queryLink = fetchCityPaths.DniproNewsToday
     
     return (
         <>

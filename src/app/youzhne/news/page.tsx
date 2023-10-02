@@ -1,11 +1,12 @@
 import LineNewsBlock from "@/components/LineNewsBlocks/LineNewsBlock"
+import { fetchCityPaths } from "@/data/FetchCityPaths"
 import { RegionOdesaPaths } from "@/data/Paths"
 import { News } from "@/types/news"
 import { Metadata } from "next"
 
 
 async function getData() {
-    const res = await fetch(`https://sside.daycom.online/api/youzhne/news`)
+    const res = await fetch(fetchCityPaths.YouzhneNews)
     return res.json()
 }
 

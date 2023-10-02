@@ -3,6 +3,8 @@ import NewsFreePlus from "@/components/News/NewsFreePlus"
 import NewsPremium from "@/components/News/NewsPremium"
 import NewsPremiumBlack from "@/components/News/NewsPremiumBlack"
 import NewsPremiumWhite from "@/components/News/NewsPremiumWhite"
+import { fetchCityPaths } from "@/data/FetchCityPaths"
+import { fetchUsers } from "@/data/FetchUsers"
 import { News } from "@/types/news"
 import { Metadata } from "next"
 
@@ -14,12 +16,12 @@ type Props = {
 }
 
 async function getData(slug: string) {
-    const res = await fetch(`https://sside.daycom.online/api/berezan/news/${slug}`)
+    const res = await fetch(`${fetchCityPaths.BerezanNews}/${slug}`)
     return res.json()
 }
 
 async function getAuthor(id: string) {
-    const res = await fetch(`https://sside.daycom.online/api/users/${id}`)
+    const res = await fetch(`${fetchUsers.users}/${id}`)
     return res.json()
 }
 

@@ -35,6 +35,10 @@ export const fetchCityPaths = {
     DniproHome: 'https://sside.daycom.com.ua/api/dnipro/with-national-news',
     DniproNewsToday: 'https://sside.daycom.com.ua/api/dnipro/news/news-today',
     DniproNews: `https://sside.daycom.com.ua/api/dnipro/news`,
+    // Fastiv
+    FastivHome: 'https://sside.daycom.com.ua/api/fastiv/with-national-news',
+    FastivNewsToday: 'https://sside.daycom.com.ua/api/fastiv/news/news-today',
+    FastivNews: `https://sside.daycom.com.ua/api/fastiv/news`,
     // Irpin
     IrpinHome: 'https://sside.daycom.com.ua/api/irpin/with-national-news',
     IrpinNewsToday: 'https://sside.daycom.com.ua/api/irpin/news/news-today',
